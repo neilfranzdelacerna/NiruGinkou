@@ -9,14 +9,22 @@ public class Transaction {
 	
 	public Transaction(String type, double amount) {
 		this.type = type;
-		this.amount = amount;
+		this.setAmount(amount);
 		this.time_stamp = LocalDateTime.now();
 	}
 	
 	@Override
 	public String toString() {
 		String time = time_stamp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		return String.format("%s: %.2f at %s", type, amount, time);
+		return String.format("%s: %.2f at %s", type, getAmount(), time);
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }
