@@ -33,7 +33,7 @@ public class BankAccount {
      * Deposits the specified amount into the account.
      * @param amount
      */
-    public void deposit(final double amount) {
+    public void deposit(double amount) {
         try {
             if (isFrozen) {
                 throw new AccountFrozenException("Account is FROZEN. "
@@ -44,8 +44,8 @@ public class BankAccount {
                         + "Must be greater than 0.");
             }
 
-            //amount = Math.round(amount * 100.0) / 100.0;
-            //balance = Math.round((balance + amount) * 100.0) / 100.0;
+            amount = Math.round(amount * 100.0) / 100.0;
+            balance = Math.round((balance + amount) * 100.0) / 100.0;
 
             transactionHistory.add(new Transaction("Deposit", amount));
         } catch (AccountFrozenException | InvalidAmountException e) {
@@ -57,7 +57,7 @@ public class BankAccount {
      * Withdraws the specified amount from the account.
      * @param amount
      */
-    public void withdraw(final double amount) {
+    public void withdraw(double amount) {
         try {
             if (isFrozen) {
                 throw new AccountFrozenException(
@@ -72,8 +72,8 @@ public class BankAccount {
                         "Insufficient funds. Current balance: " + balance);
             }
 
-            //amount = Math.round(amount * 100.0) / 100.0;
-            //balance = Math.round((balance - amount) * 100.0) / 100.0;
+            amount = Math.round(amount * 100.0) / 100.0;
+            balance = Math.round((balance - amount) * 100.0) / 100.0;
             transactionHistory.add(new Transaction("Deposit", amount));
         } catch (AccountFrozenException | InvalidAmountException e) {
             System.out.println(e.getMessage());

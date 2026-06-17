@@ -61,28 +61,28 @@ final class Main {
         System.out.printf("Amount deposited: %.2f%n", amount);
         System.out.println();
 
-        amount = 500;
+        amount = WITHDRAW_SMALL;
         acc1.withdraw(amount);
         System.out.printf("Amount withdrawn: %.2f%n", amount);
         System.out.println("Current balance: " + acc1.getBalance());
         System.out.println();
 
-        amount = 1500;
+        amount = WITHDRAW_LARGE;
         acc1.withdraw(amount);
         System.out.printf("Amount withdrawn: %.2f%n", amount);
         System.out.println();
 
-        amount = -100;
+        amount = -NEG_WITHDRAW;
         acc1.withdraw(amount);
         System.out.printf("Amount withdrawn: %.2f%n", amount);
         System.out.println();
 
         acc1.freezeAccount();
-        amount = 11500;
+        amount = FROZEN_DEPOSIT;
         acc1.deposit(amount);
         System.out.println();
 
-        amount = 100;
+        amount = FINAL_WITHDRAW;
         acc1.unfreezeAccount();
         acc1.withdraw(amount);
         System.out.printf("Amount withdrawn: %.2f%n", amount);
@@ -107,23 +107,23 @@ final class Main {
         accM1.listAccounts();
         System.out.println();
 
-        amount = -500;
+        amount = NEG;
         acc1.deposit(amount);
         System.out.printf("Amount deposited: %.2f%n", amount);
         System.out.println("Current balance: " + acc1.getBalance());
         System.out.println();
 
         acc1.freezeAccount();
-        amount = 11500;
+        amount = FROZEN_DEPOSIT;
         acc1.deposit(amount);
         System.out.println();
 
-        amount = -100;
+        amount = -NEG_WITHDRAW;
         acc1.unfreezeAccount();
         acc1.withdraw(amount);
         System.out.println("Amount withdrawn: " + amount);
 
-        amount = 1500;
+        amount = WITHDRAW_LARGE;
         acc1.withdraw(amount);
         System.out.println();
         System.out.println("Filtering transactions at or above 200: "
