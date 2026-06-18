@@ -37,6 +37,10 @@ final class Main {
      * Used to test withdrawing an amount when the account is frozen.
      */
     private static final double FINAL_WITHDRAW = 100.0;
+    /**
+     * Used to test filtering transactions at or above a certain amount.
+     */
+    private static final int FILTER = 200;
 
     public static void main(final String[] args) {
 
@@ -127,7 +131,7 @@ final class Main {
         acc1.withdraw(amount);
         System.out.println();
         System.out.println("Filtering transactions at or above 200: "
-                + accM1.filterTransactionsAtOrAbove(200,
+                + accM1.filterTransactionsAtOrAbove(FILTER,
                         acc1.getTransactionHistory()));
         System.out.println();
         System.out.println("Sorting transactions by amount: "
